@@ -21,6 +21,7 @@ RUN conda install --quiet --yes \
     conda env update --name python-training -f environment.yml && \
     rm environment.yml && \
     pip install --no-cache-dir nbgitpuller && \
+    jupyter lab --CondaKernelSpecManager.name_format="'{1}'" && \
     conda clean --all -f -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
