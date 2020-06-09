@@ -1,0 +1,28 @@
+name: SAIGE
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+  - anaconda
+  - r
+dependencies:
+  - r-base==3.6.1
+  - r-irkernel
+  - r-optparse
+  - r-rcppparallel
+  - r-data.table
+  - r-matrix
+  - r-spatest
+  - r-rcppeigen
+  - r-devtools
+  - r-skat
+  - r-rcpp
+  - r-rcpparmadillo
+  - r-bh
+  - python==2.7.*
+  - boost=1.72.0
+  - bzip2=1.0.8
+  - cmake=3.14.0
+  - gettext=0.19.8.1
+  - zlib=1.2.11
+  - pip=20.1.1
