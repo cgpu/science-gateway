@@ -10,6 +10,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
+COPY .condarc /home/jovyan/
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends zlib1g-dev libssl-dev && \
     apt-get clean && \
