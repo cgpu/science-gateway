@@ -1,2 +1,7 @@
 c.NotebookApp.kernel_spec_manager_class = "nb_conda_kernels.CondaKernelSpecManager"
+# For removing default language prefix (aka {0}) from kernel label in JLab UI see fcollonval/jupyter_conda/issues/43
 c.CondaKernelSpecManager.name_format = "{1}"
+
+# For suppressing build prompt (USER 500 cannot complete re-build)
+c.LabApp.tornado_settings.page_config_data.buildCheck = False
+c.LabApp.tornado_settings.page_config_data.buildAvailable = False
