@@ -21,7 +21,6 @@ RUN conda install --quiet --yes \
     conda env update --name python-training -f environment.yml && \
     rm environment.yml && \
     pip install --no-cache-dir nbgitpuller && \
-    jupyter lab --CondaKernelSpecManager.name_format="'{1}'" && \
     conda clean --all -f -y && \
     jupyter lab clean -y && \
     npm cache clean --force && \
@@ -31,7 +30,9 @@ RUN conda install --quiet --yes \
     fix-permissions /home/$NB_USER
 
 COPY README_FIRST.ipynb /
-
 COPY .condarc /
+
+COPY append_jupyter_notebook_config_py.txt /
+RUN cat /append_jupyter_notebook_config_py.txt >> /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 USER $NB_UID

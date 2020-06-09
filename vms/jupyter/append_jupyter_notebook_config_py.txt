@@ -1,0 +1,2 @@
+c.NotebookApp.kernel_spec_manager_class = "nb_conda_kernels.CondaKernelSpecManager"
+c.CondaKernelSpecManager.name_format = "{1}"
