@@ -26,3 +26,6 @@ dependencies:
   - gettext=0.19.8.1
   - zlib=1.2.11
   - pip=20.1.1
+  - bioconductor-snprelate
+  - bioconductor-saigegds
+  - bioconductor-seqarray
