@@ -1,2 +1,2 @@
 envs_dirs:
-  - /home/jovyan/my-conda-envs
+  - /tmp/cloudos_user_envs
