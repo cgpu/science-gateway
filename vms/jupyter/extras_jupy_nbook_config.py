@@ -3,3 +3,4 @@ c.NotebookApp.kernel_spec_manager_class = "nb_conda_kernels.CondaKernelSpecManag
 c.CondaKernelSpecManager.name_format = "{1}"
 c.NotebookApp.kernel_spec_manager_class = "nb_conda_kernels.CondaKernelSpecManager"
 c.CondaKernelSpecManager.env_filter =  "/opt/conda/*"
+

@@ -20,7 +20,8 @@ RUN apt-get update && \
 USER $NB_UID
 
 RUN conda install --quiet --yes \
-    'conda-forge::nb_conda_kernels'  && \
+    'conda-forge::nb_conda_kernels'  \
+    jupytext && \
     conda clean --all -f -y && \
     jupyter lab clean -y && \
     npm cache clean --force
@@ -32,10 +33,17 @@ RUN conda env create --name SAIGE --file /SAIGE.yml && \
     source /opt/conda/etc/profile.d/conda.sh  && \
     conda activate SAIGE && \
     pip install 'cget==0.1.9' 'click==7.1.2' && \
-    Rscript -e 'Sys.setenv(TAR = "/bin/tar"); devtools::install_github("weizhouUMICH/SAIGE@8f3021d")' && \
+    Rscript -e 'Sys.setenv(TAR = "/bin/tar"); devtools::install_github("weizhouUMICH/SAIGE@8f3021d", build_manual = TRUE )' && \
     conda clean --all -y
 
-COPY append_jupyter_notebook_config_py.txt /
-RUN cat /append_jupyter_notebook_config_py.txt >> /home/jovyan/.jupyter/jupyter_notebook_config.py
+COPY extras_jupy_nbook_config.py /
+RUN cat /extras_jupy_nbook_config.py >> /home/jovyan/.jupyter/jupyter_notebook_config.py
+
+USER root
+
+# Found here: https://stackoverflow.com/questions/56619347/anaconda-environment-bash-prefix-too-long
+RUN conda config --set env_prompt '($(basename {default_env})) '
 
 USER $NB_UID
+
+
